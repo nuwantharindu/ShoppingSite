@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p " +
-            "WHERE lower(p.skuCode) LIKE lower(concat('%', :query, '%')) " +
+            "WHERE lower(p.productcode) LIKE lower(concat('%', :query, '%')) " +
             "OR lower(p.name) LIKE lower(concat('%', :query, '%')) " +
             "OR lower(p.description) LIKE lower(concat('%', :query, '%'))")
     List<Product> findBySearchQuery(String query);
