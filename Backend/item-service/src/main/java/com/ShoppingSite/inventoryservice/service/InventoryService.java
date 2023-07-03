@@ -20,7 +20,8 @@ public class InventoryService {
 
     public void createInventory(InventoryRequest inventoryRequest) {
         Inventory inventory = Inventory.builder()
-                .skuCode(inventoryRequest.getSkuCode())
+                .productcode
+                (inventoryRequest.getProductcode())
                 .quantity(inventoryRequest.getQuantity())
                 .build();
 
@@ -28,18 +29,23 @@ public class InventoryService {
     }
 
     @Transactional(readOnly = true)
-    public List<InventoryResponse> isInStock(List<String> skuCode){
-        return inventoryRepository.findBySkuCodeIn(skuCode).stream()
+    public List<InventoryResponse> isInStock(List<String> productcode
+    ){
+        return inventoryRepository.findByProductCodeIn(productcode
+        ).stream()
                 .map(inventory ->
                     InventoryResponse.builder()
-                            .skuCode(inventory.getSkuCode())
+                            .productcode
+                            (inventory.getProductcode())
                             .isInStock(inventory.getQuantity() > 0)
                             .build()
                 ).toList();
     }
 
-    public InventoryUpdateResponse updateInventory(String skuCode, InventoryUpdateRequest inventoryUpdateRequest) {
-        Inventory inventory = inventoryRepository.findBySkuCode(skuCode);
+    public InventoryUpdateResponse updateInventory(String productcode
+    , InventoryUpdateRequest inventoryUpdateRequest) {
+        Inventory inventory = inventoryRepository.findByProductCodeInSkuCode(productcode
+        );
         inventory.setQuantity(inventoryUpdateRequest.getQuantity());
 
         return this.mapToInventoryUpdateResponse(inventoryRepository.save(inventory));
@@ -47,7 +53,8 @@ public class InventoryService {
 
     private InventoryUpdateResponse mapToInventoryUpdateResponse(Inventory inventory){
         return  InventoryUpdateResponse.builder()
-                .skuCode(inventory.getSkuCode())
+                .productcode
+                (inventory.getProductcode())
                 .quantity(inventory.getQuantity())
                 .build();
     }

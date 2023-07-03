@@ -26,14 +26,15 @@ public class ProductService {
 
     public void createProduct(ProductRequest productRequest){
         Product product = Product.builder()
-                .skuCode(productRequest.getSkuCode())
+                .productCode(productRequest.getProductCode())
                 .name(productRequest.getName())
                 .description(productRequest.getDescription())
                 .price(productRequest.getPrice())
                 .build();
 
         InventoryRequest inventoryRequest = InventoryRequest.builder()
-                        .skuCode(productRequest.getSkuCode())
+                        .productCode(productRequest.getProductCode
+    ())
                                 .quantity(productRequest.getQuantity())
                                         .build();
 
@@ -68,7 +69,7 @@ public class ProductService {
     private ProductResponse mapToProductResponse(Product product) {
         return ProductResponse.builder()
                 .id(product.getId())
-                .skuCode(product.getSkuCode())
+                .productCode(product.getProductCode())
                 .name(product.getName())
                 .description(product.getDescription())
                 .price(product.getPrice())
@@ -82,7 +83,8 @@ public class ProductService {
     public ProductResponse updateProduct(Long id, Product updatedProduct){
         return productRepository.findById(id)
                 .map(product -> {
-                    product.setSkuCode(updatedProduct.getSkuCode());
+                    product.setproductCode(updatedProduct.getProductCode
+());
                     product.setName(updatedProduct.getName());
                     product.setDescription(updatedProduct.getDescription());
                     product.setPrice(updatedProduct.getPrice());

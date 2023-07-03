@@ -21,8 +21,7 @@ public class PaymentService {
     public PaymentResponse payWithCreditCard(CreditCardPaymentRequest creditCardPaymentRequest) {
         CreditCardPayment payment = new CreditCardPayment();
         payment.setAmount(creditCardPaymentRequest.getAmount());
-        // Here you would call the payment gateway to process the transaction using the creditCardPaymentRequest object
-        // If the transaction is successful, save the payment object to the database
+
         paymentRepository.save(payment);
         return new PaymentResponse(payment.getId(), "Credit Card", payment.getAmount());
     }
@@ -33,8 +32,7 @@ public class PaymentService {
     }
 
     public PaymentResponse refund(Long id) {
-        // Here you would call the payment gateway to process the refund
-        // If the refund is successful, delete the payment object from the database
+
         paymentRepository.deleteById(id);
         return new PaymentResponse(id, "Refund successful");
     }
