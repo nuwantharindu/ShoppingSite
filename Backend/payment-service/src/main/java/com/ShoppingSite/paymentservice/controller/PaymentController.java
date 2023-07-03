@@ -22,12 +22,6 @@ public class PaymentController {
         return new ResponseEntity<>(paymentResponse, HttpStatus.CREATED);
     }
 
-    @PostMapping("/mobile")
-    public ResponseEntity<PaymentResponse> payWithMobile(@RequestBody MobilePaymentRequest mobilePaymentRequest) {
-        PaymentResponse paymentResponse = paymentService.payWithMobile(mobilePaymentRequest);
-        return new ResponseEntity<>(paymentResponse, HttpStatus.CREATED);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<PaymentResponse> getPaymentStatus(@PathVariable Long id) {
         PaymentResponse paymentResponse = paymentService.getPayment(id);

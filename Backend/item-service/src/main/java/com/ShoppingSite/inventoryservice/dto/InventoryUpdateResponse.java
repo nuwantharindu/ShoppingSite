@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class InventoryUpdateResponse {
-    private String skuCode;
+    private String productCode;
     private Integer quantity;
 }

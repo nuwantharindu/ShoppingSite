@@ -26,13 +26,13 @@ public class InventoryController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<InventoryResponse> isInStock(@RequestParam List<String> skuCode){
-        return inventoryService.isInStock(skuCode);
+    public List<InventoryResponse> isInStock(@RequestParam List<String> productCode){
+        return inventoryService.isInStock(productCode);
     }
 
-    @PutMapping("/{skuCode}")
+    @PutMapping("/{productCode}")
     @ResponseStatus(HttpStatus.OK)
-    public InventoryUpdateResponse updateInventory(@PathVariable String skuCode, @RequestBody InventoryUpdateRequest inventoryUpdateRequest) {
-        return inventoryService.updateInventory(skuCode, inventoryUpdateRequest);
+    public InventoryUpdateResponse updateInventory(@PathVariable String productCode, @RequestBody InventoryUpdateRequest inventoryUpdateRequest) {
+        return inventoryService.updateInventory(productCode, inventoryUpdateRequest);
     }
 }

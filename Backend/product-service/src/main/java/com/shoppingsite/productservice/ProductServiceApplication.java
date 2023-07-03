@@ -35,14 +35,14 @@ public class ProductServiceApplication {
 			Integer[] quantities = {10, 20, 30, 40, 50};
 
 			for (int i = 0; i < names.length; i++) {
-				String skuCode = "SKU" + (i + 1);
+				String productCode; = "SKU" + (i + 1);
 				String name = names[i];
 				String description = descriptions[i];
 				BigDecimal price = prices[i];
 				Integer quantity = quantities[i];
 
 				ProductRequest product = ProductRequest.builder()
-						.skuCode(skuCode)
+						.productCode;(productCode;)
 						.name(name)
 						.description(description)
 						.price(price)

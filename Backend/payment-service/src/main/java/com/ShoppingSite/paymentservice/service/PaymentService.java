@@ -27,15 +27,6 @@ public class PaymentService {
         return new PaymentResponse(payment.getId(), "Credit Card", payment.getAmount());
     }
 
-    public PaymentResponse payWithMobile(MobilePaymentRequest mobilePaymentRequest) {
-        MobilePayment payment = new MobilePayment();
-        payment.setAmount(mobilePaymentRequest.getAmount());
-        // Here you would call the payment gateway to process the transaction using the mobilePaymentRequest object
-        // If the transaction is successful, save the payment object to the database
-        paymentRepository.save(payment);
-        return new PaymentResponse(payment.getId(), "Mobile", payment.getAmount());
-    }
-
     public PaymentResponse getPayment(Long id) {
         Payment payment = paymentRepository.findById(id).orElseThrow(() -> new NotFoundException("Payment not found"));
         return new PaymentResponse(payment.getId(), payment.getPaymentType(), payment.getAmount());
