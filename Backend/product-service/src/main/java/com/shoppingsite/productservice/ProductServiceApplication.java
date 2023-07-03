@@ -29,10 +29,10 @@ public class ProductServiceApplication {
 		return args -> {
 			List<ProductRequest> productRequests = new ArrayList<>();
 
-			String[] names = {"Macbook Pro 13", "iPhone 14 Pro", "Airpods Pro(2nd Gen)", "Troubadour Backpack", "Nike Sneakers"};
-			String[] descriptions = {"High-performance laptop for work and gaming", "Latest smartphone with advanced features", "Noise-cancelling headphones with great sound quality", "Durable backpack with multiple compartments", "Comfortable sneakers for everyday wear"};
-			BigDecimal[] prices = {new BigDecimal("999.99"), new BigDecimal("799.99"), new BigDecimal("199.99"), new BigDecimal("49.99"), new BigDecimal("99.99")};
-			Integer[] quantities = {10, 20, 30, 40, 50};
+			String[] productCodes = {"P001", "P002"};
+        	String[] names = {"Product A", "Product B"};
+        	String[] descriptions = {"Description for Product A", "Description for Product B"};
+        	BigDecimal[] prices = {new BigDecimal("10.00"), new BigDecimal("15.50")};
 
 			for (int i = 0; i < names.length; i++) {
 				String productCode; = "SKU" + (i + 1);
