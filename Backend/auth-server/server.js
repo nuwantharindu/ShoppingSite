@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('user_db', 'your_username', 'your_password', {
+const sequelize = new Sequelize
+('user_db', 'your_username', 'your_password', {
   host: 'localhost',
   dialect: 'mysql',
 });
@@ -21,7 +22,6 @@ const User = sequelize.define('User', {
   },
 }, { timestamps: true });
 
-// Synchronize the model with the database (create the 'users' table)
 sequelize.sync()
   .then(() => {
     console.log("User table created");
