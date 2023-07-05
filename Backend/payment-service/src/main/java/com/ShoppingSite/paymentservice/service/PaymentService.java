@@ -2,10 +2,8 @@ package com.shoppingsite.paymentservice.service;
 
 import jakarta.ws.rs.NotFoundException;
 import com.shoppingsite.paymentservice.dto.CreditCardPaymentRequest;
-import com.shoppingsite.paymentservice.dto.MobilePaymentRequest;
 import com.shoppingsite.paymentservice.dto.PaymentResponse;
 import com.shoppingsite.paymentservice.model.CreditCardPayment;
-import com.shoppingsite.paymentservice.model.MobilePayment;
 import com.shoppingsite.paymentservice.model.Payment;
 import com.shoppingsite.paymentservice.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
